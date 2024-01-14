@@ -37,3 +37,16 @@ Constraints:
 
 1 <= word1.length, word2.length <= 105
 word1 and word2 contain only lowercase English letters.
+
+// Code:
+class Solution:
+    def closeStrings(self, word1: str, word2: str) -> bool:
+        d1, d2 = collections.Counter(word1), collections.Counter(word2)
+        L1 = sorted(list(d1.values()))
+        L2 = sorted(list(d2.values()))
+        for v1, v2 in zip(L1, L2):
+            if v1 != v2: return False
+        return True and d1.keys()==d2.keys() 
+
+
+
